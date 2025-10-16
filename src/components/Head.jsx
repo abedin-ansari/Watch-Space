@@ -2,6 +2,7 @@ import React from "react";
 import { toggleMenu } from "../utils/appSlice";
 import { useDispatch } from "react-redux";
 import { useTheme } from "next-themes";
+import Logo from "../assets/AppLogo.png";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,12 @@ const Head = () => {
           alt="menu"
         />
 
+        {/* The WatchSpace Logo - Perfectly Sized */}
         <img
-          className="w-60 h-16"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStB_jkVpXKRsdNUFxnGXc6QuXgafdItqZSzgsMEoCeNPd3ZFDZrNGv3jI&s"
-          alt="Logo"
+          className="h-16 w-56 cursor-pointer" // Ensures clean scaling
+          src={Logo}
+          alt="WatchSpace logo"
+          loading="eager"
         />
       </div>
       <div className="col-span-10 px-12 flex items-center justify-center">
