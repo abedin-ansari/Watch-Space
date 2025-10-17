@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    getVideos();
-  }, []);
-
   const getVideos = async () => {
     const data = await fetch(Youtube_Videos_API);
     const json = await data.json();
     setVideos(json.items);
   };
+
+  useEffect(() => {
+    getVideos();
+  }, []);
 
   return (
     <div className="flex flex-wrap  justify-center">

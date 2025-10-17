@@ -10,6 +10,7 @@ const WatchPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+
   return (
     <div className="px-5">
       <iframe
@@ -22,6 +23,7 @@ const WatchPage = () => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      <h1>Comments</h1>
     </div>
   );
 };

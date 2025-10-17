@@ -2,7 +2,8 @@ import React from "react";
 import { toggleMenu } from "../utils/appSlice";
 import { useDispatch } from "react-redux";
 import { useTheme } from "next-themes";
-import Logo from "../assets/AppLogo.png";
+import AnimatedLogo from "./AnimatedLogo";
+// import Logo from "../assets/AppLogo.png"; // legacy image logo (kept as requested)
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -18,18 +19,24 @@ const Head = () => {
       <div className="flex col-span-1 items-center">
         <img
           onClick={() => toggleMenuHandler()}
-          className="h-6 mr-2 cursor-pointer"
+          className="h-9 mr-2 bg-gray-300 cursor-pointer"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"
           alt="menu"
         />
 
-        {/* The WatchSpace Logo - Perfectly Sized */}
-        <img
-          className="h-16 w-56 cursor-pointer" // Ensures clean scaling
-          src={Logo}
-          alt="WatchSpace logo"
-          loading="eager"
-        />
+        {/* Animated Watch Space Logo */}
+        <AnimatedLogo className="h-14 w-[220px] pl-12 cursor-pointer" />
+
+        {/**
+         * Legacy image logo kept for reference (commented as requested):
+         *
+         * <img
+         *   className="h-16 w-56 cursor-pointer"
+         *   src={Logo}
+         *   alt="WatchSpace logo"
+         *   loading="eager"
+         * />
+         */}
       </div>
       <div className="col-span-10 px-12 flex items-center justify-center">
         <input
