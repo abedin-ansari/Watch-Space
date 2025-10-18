@@ -10,14 +10,17 @@ const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    console.log("Search Query:", searchQuery);
-    getSearcchSuggestions();
+    const timer = setTimeout(() => getSearcchSuggestions(), 200);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [searchQuery]);
 
   const getSearcchSuggestions = async () => {
+    console.log("Search Query:", searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    console.log(json);
   };
 
   const dispatch = useDispatch();
@@ -52,18 +55,34 @@ const Head = () => {
          * />
          */}
       </div>
-      <div className="col-span-10 px-12 flex items-center justify-center">
-        <input
-          className="w-96 px-3 py-2 border rounded-l-full"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button className="px-4 py-2 border border-l-0 rounded-r-full bg-gray-200 cursor-pointer">
-          🔍
-        </button>
-      </div>
+      <div>
+        <div className="col-span-10 px-2 flex items-center justify-center">
+          <input
+            className="w-96 px-2 py-2 border rounded-l-full"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className="px-4 py-2 border border-l-0 rounded-r-full bg-gray-200 cursor-pointer">
+            🔍
+          </button>
+        </div>
 
+        <div className="fixed bg-white ml-52 text-black py-2 px-5 rounded-lg shadow-lg w-[25rem] border border-gray-300">
+          <ul>
+            <li className="py-2 shadow-sm hover:bg-gray-100">🔍 iphone</li>
+            <li className="py-2 shadow-sm hover:bg-gray-100">🔍 iphone Pro</li>
+            <li className="py-2 shadow-sm hover:bg-gray-100">
+              🔍 iphone pro max
+            </li>
+            <li className="py-2 shadow-sm hover:bg-gray-100">🔍 iphone 15</li>
+            <li className="py-2 shadow-sm hover:bg-gray-100">🔍 iphone 16</li>
+            <li className="py-2 shadow-sm hover:bg-gray-100">
+              🔍 iphone 16 pro
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="col-span-1 flex justify-end items-center space-x-3">
         {/* 🌙 Dark Mode Button */}
         <button
