@@ -1,18 +1,26 @@
 import { toggleMenu } from "../utils/appSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "next-themes";
 import AnimatedLogo from "./AnimatedLogo";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
-// import Logo from "../assets/AppLogo.png"; // legacy image logo (kept as requested)
+// import Logo from "../assets/AppLogo.png";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
 
+  const searchCache = useSelector((store) => store.search);
+
   useEffect(() => {
-    const timer = setTimeout(() => getSearcchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (cache) {
+        setSuggestion(json[1]);
+      } else {
+        getSearcchSuggestions();
+      }
+    });
 
     return () => {
       clearTimeout(timer);
