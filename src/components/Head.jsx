@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import AnimatedLogo from "./AnimatedLogo";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 // import Logo from "../assets/AppLogo.png";
 
 const Head = () => {
@@ -12,15 +13,16 @@ const Head = () => {
   const [showSuggestion, setShowSuggestion] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (cache) {
-        setSuggestion(json[1]);
+      if (searchCache[searchQuery]) {
+        setSuggestion(searchCache[searchQuery]);
       } else {
         getSearcchSuggestions();
       }
-    });
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -32,9 +34,14 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     setSuggestion(json[1]);
+
+    dispatch(
+      cacheResults({
+        [searchQuery]: json[1],
+      })
+    );
   };
 
-  const dispatch = useDispatch();
   // Dark Mode
   const { theme, setTheme } = useTheme();
 
