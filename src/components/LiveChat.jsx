@@ -53,7 +53,7 @@ const LiveChat = () => {
             onChange={(e) => setLiveMessage(e.target.value)}
             placeholder="Type Here"
           />
-          <button className="px-2 mx-2 bg-green-200">Send</button>
+          <button className="px-2 mx-2 bg-green-300">Send</button>
         </form>
       </div>
     </>
