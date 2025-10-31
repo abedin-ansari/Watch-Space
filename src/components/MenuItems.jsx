@@ -3,7 +3,7 @@ import React from "react";
 const MenuItems = () => {
   return (
     <div>
-      <h1></h1>
+      <h1>Menu Items</h1>
     </div>
   );
 };
