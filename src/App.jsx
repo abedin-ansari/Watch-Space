@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContent from "./components/MainContent";
 import WatchPage from "./components/WatchPage";
+import Demo from "./components/Demo";
 
 const appRouter = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const appRouter = createBrowserRouter([
       {
         path: "watch",
         element: <WatchPage />,
+      },
+      {
+        path: "demo",
+        element: <Demo />,
       },
     ],
   },

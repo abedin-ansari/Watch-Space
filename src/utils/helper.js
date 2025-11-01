@@ -290,3 +290,14 @@ export function generateRandomMessage() {
 
   return finalMessage;
 }
+
+export function nthprime(n) {
+  var prime = [],
+    i = 1;
+  while (i++ && prime.length < n)
+    prime.reduce((a, c) => (i % c) * a, 2) && prime.push(i);
+  return prime.length ? prime.pop() : -1;
+}
+[-1, 0, 1, 2, 3, 5, 10, 100].forEach((n) =>
+  console.log(`nthprime(${n})=${nthprime(n)}`)
+);
