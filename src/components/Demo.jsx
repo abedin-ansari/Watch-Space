@@ -5,7 +5,7 @@ const Demo = () => {
   const [text, setText] = useState(0);
 
   // ⭐ useMemo: Memoizes the RESULT (the calculated prime number)
-  // 
+  //
   // WHY IT'S IMPORTANT:
   // - Without useMemo: nthprime(text) runs on EVERY render (even if 'text' didn't change)
   // - With useMemo: Only calculates when 'text' changes (saves computation time)
@@ -13,7 +13,7 @@ const Demo = () => {
   let prime = useMemo(() => nthprime(text), [text]); // ← Caches the result until 'text' changes
 
   // ⭐ useCallback: Memoizes the FUNCTION itself (not the result)
-  // 
+  //
   // WHY IT'S IMPORTANT:
   // - Without useCallback: A new function is created on EVERY render (wasteful!)
   // - With useCallback: Same function reference is reused (saves memory & prevents unnecessary re-renders)
@@ -36,7 +36,7 @@ const Demo = () => {
       <div>
         <h1 className="mt-4 font-bold text-xl">Prime Number: {prime}</h1>
       </div>
-      
+
       {/* 
         📚 QUICK REFERENCE - useMemo vs useCallback:
         
