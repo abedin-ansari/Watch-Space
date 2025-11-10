@@ -72,7 +72,7 @@ const Head = () => {
          * />
          */}
       </div>
-      <div>
+      <div className="relative">
         <div className="col-span-10 px-2 flex items-center justify-center">
           <input
             className="w-96 px-2 py-2 border rounded-l-full"
@@ -88,7 +88,7 @@ const Head = () => {
         </div>
 
         {showSuggestion && (
-          <div className="fixed bg-white ml-52 text-black py-2 px-5 rounded-lg shadow-lg w-[25rem] border border-gray-300">
+          <div className="fixed top-20 left-1/2 -translate-x-1/2 bg-white text-black py-2 px-5 rounded-lg shadow-xl w-[25rem] border border-gray-300 z-[9999]">
             <ul>
               {suggestion.map((s) => (
                 <li className="py-2 shadow-sm hover:bg-gray-100" key={s}>

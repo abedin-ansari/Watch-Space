@@ -19,8 +19,8 @@ const VideoCards = ({ info }) => {
 export const AdVideoCard = ({ info }) => {
   // Higher Order Component (used in VideoContainer.jsx): Takes a component and returns a new component with additional features or styling existing component.
   return (
-    <div className="p-1 m-1 border border-red-900">
-      <button className="hover:bg-amber-600 p-2 cursor-pointer">Ad</button>
+    <div className="relative p-2 m-2 border-2 border-amber-500 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg shadow-2xl">
+      <div className="absolute top-2 left-2 z-10 bg-amber-500 text-white font-bold px-3 py-1 rounded-md text-xs shadow-lg">AD</div>
       <VideoCards info={info} />
     </div>
   );

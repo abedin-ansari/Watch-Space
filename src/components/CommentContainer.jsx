@@ -31,6 +31,16 @@ const commentsData = [
       },
     ],
   },
+  {
+    name: "Emily Davis",
+    text: "Thanks for sharing this content.",
+    replies: [
+      {
+        name: "Olivia Brown",
+        text: "You're welcome, Emily!",
+      },
+    ],
+  },
 ];
 
 const Comment = ({ data }) => {
